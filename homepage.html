@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            outline: none;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            height: 100hv;
+        }
+
+        .logo {
+            position: absolute;
+            top: 15px;
+            left: 60px;
+        }
+
+        .container {
+            height: 100%;
+        }
+
+        .header {
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+        }
+
+        .header h2 {
+            /* text-shadow: 5px 5px 13px gray; */
+            color: black;
+        }
+
+        .loginSystem {
+            position: absolute;
+            top: 35px;
+            right: 30px;
+        }
+
+        .loginSystem button {
+            width: 100px;
+            height: 30px;
+            background-color: rgb(196, 245, 20);
+            border: none;
+            color: black;
+            font-weight: bold;
+            border-radius: 5px;
+            box-shadow: 2px 3px 6px 0px black;
+            cursor: pointer;
+        }
+
+        .main {
+            height: calc(100vh - 105px);
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .nav {
+            height: 100%;
+            flex: 1;
+            border-radius: 7px;
+
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            height: 100%;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 25px;
+
+        }
+
+        .nav-menu-item {
+            height: 30px;
+            width: 100%;
+            text-align: center;
+            padding: 30px 20px;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            background-color: rgba(231, 225, 225, 0.562);
+            justify-content: center;
+            border-radius: 5px;
+            box-shadow: 0px 2px 15px -4px black;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .nav-links {
+
+            color: black;
+            font-size: 20px;
+        }
+
+        .pages {
+            flex: 4;
+
+            border-radius: 7px;
+
+            overflow: hidden;
+
+        }
+
+        .page-content {
+            height: 100%;
+            padding: 10px 20px;
+        }
+
+        .pageHead {
+            height: 55px;
+            padding: 8px 0;
+            border-bottom: 3px solid black;
+            text-align: center;
+            margin: auto;
+
+        }
+
+        .pageItem {
+            padding: 15px 10px;
+            text-align: justify;
+
+        }
+
+        #home {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #home .pageHead {
+            margin-top: 50px;
+            border: none;
+        }
+
+        #home .pageItem p {
+            margin-top: -90px;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        #about p {
+            line-height: 1.5;
+        }
+
+        #courses .pageItem {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+
+        .coursBox {
+            border: 1px solid black;
+            width: 30%;
+            height: 100px;
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 1px 4px 14px 1px grey;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .coursBox h3 {
+            padding: 8px;
+            font-size: 30px;
+        }
+
+        .coursBox button {
+            width: 150px;
+            height: 30px;
+            background-color: chartreuse;
+            border: none;
+            cursor: pointer;
+            box-shadow: 1px 2px 6px 1px grey;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input[type=text],
+        input[type=email],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 4px;
+            margin-bottom: 10px;
+        }
+
+        input[type=submit] {
+            background-color: rgb(117, 196, 0);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: rgb(130, 209, 12);
+        }
+
+        #Offers {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #Offers .pageItem {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        #Offers .pageItem img {
+            width: 250px;
+            margin: 0 10px;
+        }
+
+        .box {
+            border: 1px solid black;
+            width: 220px;
+            height: 270px;
+        }
+        #hotels{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #hotels .pageItem{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        #img1{
+            background: url("https://imgcy.trivago.com/d_dummy.jpeg,f_auto,q_auto/if_iw_lte_ih,c_scale,w_236/if_else,c_scale,h_160/e_improve,q_auto:low//partnerimages/28/13/281395978.jpeg");
+        }
+        #img2{
+            background: url("https://imgcy.trivago.com/d_dummy.jpeg,f_auto,q_auto/if_iw_lte_ih,c_scale,w_236/if_else,c_scale,h_160/e_improve,q_auto:low//partnerimages/50/26/502658154.jpeg");
+        }
+        #img3{
+            background: url("https://imgcy.trivago.com/c_limit,d_dummy.jpeg,f_auto,h_1300,q_auto,w_2000/partnerimages/10/17/1017338830.jpeg");
+        }
+        #img4{
+            background: url("https://imgcy.trivago.com/c_limit,d_dummy.jpeg,f_auto,h_1300,q_auto,w_2000/partnerimages/37/27/372734990.jpeg");   
+        }
+
+        .imgBox{
+            height: 50%;
+            width: 100%;
+            background-position: center!important;
+            background-size: cover!important;
+            background-repeat: no-repeat!important;
+        }
+
+        .imgContent{
+            height: 50%;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .imgContent button{
+            width: 80px;
+            height: 30px;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+        #location .page-content {
+            
+            height: 100%;
+        }
+        #location .pageItem{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 400px;
+            margin: 10px;
+        }
+        #location .pageItem button{
+            width: 200px;
+            height: 30px;
+            cursor: pointer;
+        }
+
+
+        .anouncment {
+            flex: 1.3;
+            border-radius: 7px;
+            padding: 20px 10px;
+
+        }
+
+        .ancHead {
+            text-align: center;
+            font-size: 15px;
+            padding-bottom: 5px;
+            border-bottom: 3px solid black;
+            margin-bottom: 20px;
+        }
+
+        .ancItemBox {
+            height: 85%;
+            padding: 10px;
+            overflow: hidden;
+        }
+
+        .ancItem {
+            margin: 20px 0;
+        }
+
+        .ancItem a {
+            text-decoration: none;
+            color: blue;
+        }
+
+        .ancItem h4 {
+            margin-left: 10px;
+            text-align: justify;
+            color: black;
+            text-decoration: underline;
+        }
+
+        .ancItem p {
+            margin-left: 10px;
+            text-align: justify;
+            font-size: 12px;
+        }
+
+        .footer {
+            position: absolute;
+            left: 0;
+            bottom: 10;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 15px;
+            padding-left: 20px;
+            color: black;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body
+    style="background-image: url(https://www.zastavki.com/pictures/1366x768/2012/World_Travel___Tourism_Traveling_around_the_World_034435_.jpg);">
+
+    <div class="logo">
+        <img src="./css/1234.png" height="80" alt="logo">
+    </div>
+    <div class="container">
+        <div class="header">
+            <h2>Happy Destination Vacation</h2>
+            <div class="loginSystem">
+                <a href="./signup.html"><button class="signup"> Register</button></a>
+                <a href="./login.html"><button class="login"> Log in</button></a>
+            </div>
+        </div>
+        <div class="main">
+            <div class="nav">
+                <ul class="nav-menu">
+                    <a href="#home" class="nav-menu-item">
+                        <li class="nav-links">Home</li>
+                    </a>
+                    <a href="#hotels" class="nav-menu-item">
+                        <li class="nav-links">Hotels</li>
+                    </a>
+                    <a href="#contact" class="nav-menu-item">
+                        <li class="nav-links">Contact</li>
+                    </a>
+                    <a href="#Offers" class="nav-menu-item">
+                        <li class="nav-links">Offers</li>
+                    </a>
+                    <a href="#location" class="nav-menu-item">
+                        <li class="nav-links">Destination</li>
+                    </a>
+                </ul>
+            </div>
+            <div class="pages">
+                <div id="home"  class="page-content">
+
+                </div>
+
+
+                <div id="hotels" class="page-content">
+                    <div class="pageItem">
+                        <div class="box">
+                            <div id="img1" class="imgBox"></div>
+                            <div class="imgContent">
+                                <h4>Price : 2500/- per night</h4>
+                                <button>Book Now</button>
+                            </div>
+                        </div>
+                        <div  class="box">
+                            <div id="img2" class="imgBox"></div>
+                            <div class="imgContent">
+                                <h4>Price : 1500/- per night</h4>
+                                <button>Book Now</button>
+                            </div>
+                        </div>
+                        <div  class="box">
+                            <div id="img3" class="imgBox"></div>
+                            <div class="imgContent">
+                                <h4>Price : 2000/- per night</h4>
+                                <button>Book Now</button>
+                            </div>
+                        </div>
+                        <div  class="box">
+                            <div id="img4" class="imgBox"></div>
+                            <div class="imgContent">
+                                <h4>Price : 3500/- per night</h4>
+                                <button>Book Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="contact" class="page-content">
+                    <div class="pageHead">
+                        <h1>Contact Us</h1>
+                    </div>
+                    <div class="pageItem">
+                        <form method="get" action="/home.html" class="form">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" placeholder="Your name" />
+
+                            <label for="email">Email Id</label>
+                            <input type="email" id="email" placeholder="Your Email address" />
+
+                            <label for="contact">Contact No</label>
+                            <input type="text" id="contact" placeholder="Your contact number" />
+                            <label for="textarea">Any Query</label>
+                            <textarea placeholder="Write your query..." cols="30" rows="5" id="textarea"></textarea>
+                            <input type="submit" value="Submit">
+                        </form>
+                    </div>
+                </div>
+
+                <div id="Offers" class="page-content">
+                    <div class="pageItem">
+                        <img src="https://www.easemytrip.com/offer-img/emt2021-lp.png" alt="">
+                        <img src="https://images.freekaamaal.com/post_images/1582028632.png" alt="">
+                        <img src="https://www.easemytrip.com/offer-img/emt2021-lp.png" alt="">
+                    </div>
+                </div>
+
+                <div id="location" class="page-content">
+                    <div class="pageItem">
+                      <a href="https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/india-travel-advisory.html"> <button>INDIA</button></a> 
+                       <a href="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwiZm8uvlvP1AhVemWYCHS13DXIYABACGgJzbQ&ae=2&ohost=www.google.com&cid=CAESWuD2tX8iai-At6UX_bF4FUmoJ_0macTVnrPBvSXEkvOclljQQ7jGvpxqirv59at9G5zunlhxpnATyZ2wKGi-CSsAzmC2D_W77h7NziTK_OpXGp3eh-9t-TKekA&sig=AOD64_0IgpE_MksqFoqzHR9kNgtzgOSwpw&q&adurl&ved=2ahUKEwjduMGvlvP1AhXAzDgGHV8vDHcQ0Qx6BAgEEAE"><button>AUSTRALIA</button></a> 
+                        <a href="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwi54-HmlvP1AhWVJCsKHYSiCAkYABADGgJzZg&ae=2&ohost=www.google.com&cid=CAESWuD2dzNJqzP7fyui8gxSkXB0dYSCzVjqG4d3HLPiTS9B3LW2Pq7gx5owcm7kftxrOwqS8uTr3FHoneITO7Vf_qiJxKFLSPPOxBIwNt53VpK9aaqell5_bnaifQ&sig=AOD64_3nIzvOlczIoGqu609GpjjrBoh7jQ&q&adurl&ved=2ahUKEwj4wdjmlvP1AhVawTgGHbQ3ANwQ0Qx6BAgGEAE"><button>CANADA</button></a>
+                       <a href="https://www.google.com/aclk?sa=L&ai=DChcSEwik29CRl_P1AhUGmmYCHZFlAykYABADGgJzbQ&ae=2&sig=AOD64_32JC1hbq2rfrCqyXWmELv2OMQo0Q&q&adurl&ved=2ahUKEwiRoMaRl_P1AhUGwzgGHdUcAxcQ0Qx6BAgDEAE"> <button>USA</button></a>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="anouncment">
+                <div class="ancHead">
+                    <h1>Announcements</h1>
+                </div>
+
+                <div class="ancItemBox">
+                    <marquee direction="up" behavior="scroll" onmouseover="this.stop();" onmouseout="this.start();">
+                        <div class="ancItem">
+                            <a
+                                href="https://globalaffairs.ucdavis.edu/announcements/travel-announcement-novel-coronavirus">
+                                <h4> Travel Announcments:corona virus(covid-19) </h4>
+                            </a>
+                        </div>
+                        <div class="ancItem">
+                            <a href="https://globalaffairs.ucdavis.edu/announcements/global-affairs-qa-covid-19">
+                                <h4>global-affairs-qa-covid-19 </h4>
+                            </a>
+                        </div>
+                        <div class="ancItem">
+                            <a
+                                href="https://timesofindia.indiatimes.com/travel/travel-news/tourist-spots-in-south-andaman-to-reopen-with-immediate-effect/as89448856.cms">
+                                <h4>Tourist spots in South Andaman to reopen with immediate effect</h4>
+                            </a>
+                        </div>
+                        <div class="ancItem">
+                            <a
+                                href="https://timesofindia.indiatimes.com/travel/travel-news/australia-decides-to-reopen-for-international-travellers-from-february-21/as89422404.cms">
+                                <h4>Australia decides to reopen for international travellers from February 21 </h4>
+                            </a>
+                        </div>
+                        <div class="ancItem">
+                            <a
+                                href="https://timesofindia.indiatimes.com/travel/travel-news/kerala-issues-new-travel-rules-for-international-arrivals/as89401287.cms">
+                                <h4>Kerala issues new travel rules for international arrivals</h4>
+                            </a>
+                        </div>
+                        <div class="ancItem">
+                            <a
+                                href="https://timesofindia.indiatimes.com/travel/travel-news/qatar-is-launching-a-luxury-yacht-cruise-for-travellers/as89391950.cms">
+                                <h4>Qatar is launching a luxury yacht cruise for travellers </h4>
+                            </a>
+                        </div>
+                        <div class="ancItem">
+                            <a
+                                href="https://timesofindia.indiatimes.com/travel/travel-news/srinagar-airport-to-remain-shut-on-weekends-after-5-pm/as89389587.cms">
+                                <h4>Srinagar airport to remain shut on weekends after 5 pm</h4>
+                            </a>
+                        </div>
+                        <div class="ancItem">
+                            <a
+                                href="https://timesofindia.indiatimes.com/travel/travel-news/bali-reopens-for-oversea-travellers-from-today/as89372590.cms">
+                                <h4>Bali reopens for oversea travellers from today </h4>
+                            </a>
+                        </div>
+                    </marquee>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p><b>Copyright &copy; develop by Manish kumar sharma</p></b>
+        </div>
+
+
+</body>
+
+</html>
